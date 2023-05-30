@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .form-container {
+      flex: 1;
+      padding: 20px;
+    }
+    
+    .form-container h2 {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .form-container .login-text {
+      margin-bottom: 32px;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      background: #e8e8e8;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-sizing: border-box;
+    }
+    
+    .form-group input[type="submit"] {
+      background-color: #d90429;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-group .account-creation {
+      color: #d90429;
+      font-weight: bold;
+    }
+
+    .form-group .forgot-password {
+      font-weight: 700;
+    color: #d90429;
+    font-size: 14px;
+    margin-top: 12px;
+    /* float: right; */
+    margin-bottom: 32px;
+    align-items: right;
+    display: flex;
+    justify-content: right;
+    }
+  
+    
+    .image-container {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="image-container">
+      <img src="microbankimage.png" alt="Image">
+    </div>
+    <div class="form-container">
+      <h2>Create an Account</h2>
+      <form>
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter your username" required>
+        </div>
+        <div class="form-group">
+          <label for="doi">Date of Incorporation</label>
+          <input type="date" id="doi" name="doi" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cfpwd">Confirm Password</label>
+          <input type="password" id="cfpwd" name="cfpwd" placeholder="Enter your password" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Create An Account">
+        </div>
+
+        <div class="form-group">
+          <label>Already have an account? <span class="account-creation">Login<span></label>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</body>
+</html>
