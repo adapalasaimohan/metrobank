@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Profile</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container header {
+  position: fixed;
+  height: 70px;
+  background: #ffffff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+.container header .title-container {
+  font-size: 22px;
+  margin: 20px;
+  float: left;
+}
+.container header .profile-container {
+  font-size: 22px;
+  margin: 20px;
+  float: right;
+}
+.profile-section {
+  background: #d90429;
+  display: inline-block;
+  margin-left: 20px;
+  border-radius: 30px;
+  padding: 9px;
+  color: white;
+  height: 18px;
+  width: 23px;
+  font-size: 16px;
+}
+.logo-text {
+  font-family: "Orbitron";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000;
+}
+.logo-text-color {
+  color: #d90429;
+}
+.logo-seperator {
+  display: inline-block;
+  margin: 0 32px;
+  color: #c4c4c4;
+  font-weight: 400;
+}
+
+.container {
+  background-color: #f1f1f1;
+  display: flex;
+}
+
+.form-container {
+  margin-top: 70px;
+  padding: 0 20px;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.form-container form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+
+.form-container h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-container .login-text {
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  width: 350px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.form-group input[type="submit"] {
+  background-color: #d90429;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-group .account-creation {
+  color: #d90429;
+  font-weight: bold;
+}
+
+.Neon {
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #494949;
+  position: relative;
+
+
+}
+
+.Neon * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.Neon-input-dragDrop {
+  display: block;
+  width: 175px;
+  padding: 10px;
+  color: #8d9499;
+  background: #fff;
+  border: 1px solid #f1f2f3;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.Neon-input-dragDrop .Neon-input-icon {
+  font-size: 48px;
+  margin-top: -10px;
+  transition: all 0.3s ease;
+}
+
+.Neon-input-text h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.Neon-input-text span {
+  font-size: 12px;
+}
+
+.Neon-input-choose-btn {
+  display: inline-block;
+    padding: 8px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #d90429;
+    border: 1px solid #f1f2f3;
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.Neon-input-text {
+  height: 150px;
+  width: 150px;
+  margin-top: 10px;
+  background: #f2f2f2;
+}
+.file-upload {
+  z-index: 999;
+  opacity: 0; 
+  width: 200px; 
+  height: 200px; 
+  position: absolute;
+  max-width: 200px;
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+      <header>
+          <div class="title-container">
+              <span class="logo-text"><span class="logo-text-color">Micro </span><span>Bank </span></span>
+              <span class="logo-seperator">|</span>
+              <span class="company-name">ABD Pvt Ltd.</span>
+          </div>
+          <div class="profile-container">
+              <span class="notification-image">
+                <img src="bell.png" alt="Image">
+              </span>
+              <span class="profile-section">SM</span>
+          </div>
+      </header>
+    <div class="form-container">
+      <h2>Edit Profile</h2>
+      <form>
+        <div class="form-group">
+          <div class="Neon Neon-theme-dragdropbox">
+            <input class="file-upload" name="files[]" id="filer_input2" multiple="multiple" type="file">
+            <div class="Neon-input-dragDrop"><div class="Neon-input-inner"><div class="Neon-input-icon"><i class="fa fa-file-image-o"></i></div><div class="Neon-input-text"></div><a class="Neon-input-choose-btn blue">Upload</a></div></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="companyname">Company Name</label>
+          <input type="text" id="companyname" name="companyname" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="oldpassword">Old Password</label>
+          <input type="password" id="oldpassword" name="oldpassword" required>
+        </div>
+
+        <div class="form-group">
+          <label for="newpassword">New Password</label>
+          <input type="password" id="newpassword" name="newpassword" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cfpwd">Confirm Password</label>
+          <input type="password" id="cfpwd" name="cfpwd" required>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Update">
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+

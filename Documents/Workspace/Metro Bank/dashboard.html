@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard-container header {
+    position: fixed;
+    height: 70px;
+    background: #ffffff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+    top: 0;
+    width: 100%;
+}
+.dashboard-container header .title-container {
+    font-size: 22px;
+    margin: 20px;
+    float:left;
+}
+.dashboard-container header .profile-container {
+    font-size: 22px;
+    margin: 20px;
+    float:right;
+}
+.profile-section {
+  background: #d90429;
+    display: inline-block;
+    margin-left: 20px;
+    border-radius: 30px;
+    padding: 9px;
+    color: white;
+    height: 18px;
+    width: 23px;
+    font-size: 16px;
+}
+.content-container {
+    padding: 90px 20px;
+    width: 100%;
+    background: #e5e5e5;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.tabs {
+    background: #ffffff;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+}
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0px 2px;
+    display: inline-block;
+    color: #232f34;
+    font-size: 16px;
+    font-weight: 400;
+}
+.panels {
+    margin-top: 30px;
+    min-height: 200px;
+    width: 100%;
+}
+.panel {
+    display: none;
+    animation: fadein 0.8s;
+}
+
+.panel .panel-container {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+.panel .summary {
+  background: #FFF0F3;
+  border: 1px solid rgba(217, 4, 41, 0.2);
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+}
+.panel .panel-container .summary-container {
+    display: flex;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+.summary-text {
+    font-weight: 700;
+}
+.panel .panel-container .summary-container .summary-content {
+    margin-right: 20%;
+}
+.current-service {
+    margin-bottom: 10px;
+}
+.current-service .current-service-text {
+    font-weight: 700;
+}
+.current-service-container {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 90px;
+}
+.current-service-container .current-service-content {
+  margin-right: 180px;
+}
+
+.current-service-container .current-service-content .cs-image {
+  margin-bottom: 18px;
+    display: block;
+}
+
+.cs-ca-icon , .cs-payroll-icon{
+  margin-left: 30px;
+}
+
+.cs-payroll-text {
+  margin-left:34px;
+}
+
+.cs-payments-icon {
+  margin-left: 35px;
+}
+
+.cs-payments-text {
+  margin-left: 25px
+}
+
+.investments-text {
+      margin-top: 10px;
+    display: inline-flex;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.panel-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.radio {
+    display: none;
+}
+#one:checked ~ .panels #one-panel,
+#two:checked ~ .panels #two-panel {
+    display: block;
+}
+#one:checked ~ .tabs #one-tab,
+#two:checked ~ .tabs #two-tab {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-weight: 700;
+    border-top: 3px solid #e8544b;
+}
+
+.details-container table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+.details-container table thead {
+    background: #fff;
+}
+
+.details-container table tbody tr {
+    background: rgba(244, 245, 253, 0.5);
+
+  border-bottom: 1px solid #E0E0E0;
+}
+.details-container table tr td,
+.details-container table tr th {
+    padding: 10px 16px;
+}
+.bold {
+  font-weight : 700;
+}
+.icon-view {
+  background-image: url('eye.png');
+  height: 15px;
+    width: 22px;
+    display: inline-block;
+    cursor: pointer;
+}
+.icon-download {
+  background-image: url('download.png');
+  height: 17px;
+    width: 14px;
+    display: inline-block;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.rating-control .star-icon {
+  background-image: url('whitestar.png');
+  height: 19px;
+    width: 20px;
+    display: inline-block;
+    margin-top: 5px;
+}
+.rating-control .checked{
+  background-image: url('greenstar.png');
+}
+.active {
+ color: green;
+}
+.reject {
+  color: red;
+}
+.logo-text {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 30px;
+  color: #000;
+}
+.logo-text-color {
+  color: #d90429;
+}
+.logo-seperator {
+  display: inline-block;
+  margin: 0 32px;
+  color: #c4c4c4;
+  font-weight: 400;
+}
+
+  </style>
+
+</head>
+<body>
+  <div class="dashboard-container">
+      <header>
+          <div class="title-container">
+              <span class="logo-text"><span class="logo-text-color">Micro </span><span>Bank </span></span>
+              <span class="logo-seperator">|</span>
+              <span class="company-name">ABD Pvt Ltd.</span>
+          </div>
+          <div class="profile-container">
+              <span class="notification-image">
+                <img src="bell.png" alt="Image">
+              </span>
+              <span class="profile-section">SM</span>
+          </div>
+      </header>
+      <div class="content-container">
+          <div class="page-title">Dashboard</div>
+          <div class="wrapper">
+              <input class="radio" id="one" name="group" type="radio" checked />
+              <input class="radio" id="two" name="group" type="radio" />
+              <div class="tabs">
+                  <label class="tab" id="one-tab" for="one">Summary</label>
+                  <label class="tab" id="two-tab" for="two">Details</label>
+              </div>
+              <div class="panels">
+                  <div class="panel" id="one-panel">
+                      <div class="panel-container summary">
+                          <span class="summary-text">Summary</span>
+                          <div class="summary-container">
+                              <div class="summary-content">
+                                  <div>Account Number</div>
+                                  <div class="bold">123456798990</div>
+                              </div>
+                              <div class="summary-content">
+                                  <div>Income</div>
+                                  <div lcass="bold">$12348990</div>
+                              </div>
+                              <div class="summary-content">
+                                  <div>Spends</div>
+                                  <div class="bold">$1298990</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="current-service"><span class="current-service-text">Services</span> micro bank services for you</div>
+                      <div class="panel-container">
+                         <span class="summary-text">Current Services</span>
+                          <div class="current-service-container">
+                              <div class="current-service-content">
+                                  <div class="cs-image cs-ca-icon">
+                                       <img src="currentaccount.png" alt="current account image">
+                                  </div>
+                                  <div class="cs-ca-text">Current Account</div>
+                                  <div class="rating-control">
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon"></span>
+                                    <span class="star-icon"></span>
+
+                                  </div>
+                              </div>
+                               <div class="current-service-content">
+                                  <div class="cs-image cs-payroll-icon">
+                                       <img src="payroll.png" alt="Image">
+                                  </div>
+                                  <div class="cs-payroll-text">Payroll</div>
+                                  <div class="rating-control">
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon"></span>
+                                    <span class="star-icon"></span>
+                                    <span class="star-icon"></span>
+
+                                  </div>
+                              </div>
+                              <div class="current-service-content">
+                                  <div class="cs-image cs-payments-icon">
+                                       <img src="payments.png" alt="Image">
+                                  </div>
+                                  <div class="cs-payments-text">payments</div>
+                                  <div class="rating-control">
+                                    <span class="star-icon checked"></span>
+                                    <span class="star-icon "></span>
+                                    <span class="star-icon "></span>
+                                    <span class="star-icon"></span>
+                                    <span class="star-icon"></span>
+
+                                  </div>
+                              </div>
+                             
+                          </div>
+                      </div>
+
+                      <div class="panel-container">
+                        <span class="summary-text">Available Services</span>
+                          <div class="current-service-container">
+                              <div class="current-service-content">
+                                  <div class="cs-image">
+                                       <img src="wallet.png" alt="Image">
+                                  </div>
+                                  <div>Wallet</div>
+                              </div>
+                               <div class="current-service-content">
+                                  <div class="cs-image">
+                                       <img src="investments.png" alt="Image">
+                                  </div>
+                                  <div class="investments-text">Investments</div>
+                              </div>
+                              <div class="current-service-content">
+                                  <div class="cs-image">
+                                       <img src="taxpayment.png" alt="Image">
+                                  </div>
+                                  <div>Tax Payment</div>
+                              </div>
+                              <div class="current-service-content">
+                                  <div class="cs-image">
+                                       <img src="loans.png" alt="Image">
+                                  </div>
+                                  <div>Loans</div>
+                              </div>
+                             
+                          </div>
+                      </div>
+                  </div>
+                  <div class="panel" id="two-panel">
+                      <div class="details-container">
+                          <table class="table" id="myTable">
+                              <thead>
+                                  <tr>
+                                      <th>Transaction ID</th>
+                                      <th>Date</th>
+                                      <th>Amount</th>
+                                      <th>Status</th>
+                                      <th>Action</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>
+                                          210012121001211
+                                      </td>
+                                      <td>
+                                          22-09-2021
+                                      </td>
+                                      <td>
+                                          1790
+                                      </td>
+                                      <td class="active">
+                                          Approved
+                                      </td>
+                                      <td>
+                                          <span class="icon-view"></span>
+                                          <span class="icon-download"></span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          210012121001211
+                                      </td>
+                                      <td>
+                                          22-09-2021
+                                      </td>
+                                      <td>
+                                          1790
+                                      </td>
+                                      <td class="reject">
+                                          Rejected
+                                      </td>
+                                     <td>
+                                          <span class="icon-view"></span>
+                                          <span class="icon-download"></span>
+                                      </td>
+                                  </tr>
+                                  <tr>
+                                      <td>
+                                          210012121001211
+                                      </td>
+                                      <td>
+                                          22-09-2021
+                                      </td>
+                                      <td>
+                                          1790
+                                      </td>
+                                      <td class="active">
+                                          Approved
+                                      </td>
+                                      <td>
+                                          <span class="icon-view"></span>
+                                          <span class="icon-download"></span>
+                                      </td>
+                                  </tr>
+                                 
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+  <script>
+  // Define the JSON data
+  var myData = [
+    { id: "saimohan", date: '30-12-2021' , amount: '900000', status: 'Approved'},
+    { id: "110011001100", date: '12-12-2021' , amount: '398829', status: 'Rejected'},
+  ];
+
+  // Get the table and tbody elements
+  var myTable = document.getElementById("myTable");
+  var myTbody = myTable.getElementsByTagName("tbody")[0];
+
+  // Loop through the rows and cells of the table
+  for (var i = 0; i < myTbody.rows.length; i++) {
+    var myCells = myTbody.rows[i].getElementsByTagName("td");
+
+    if(myData[i]) {
+      myCells[0].innerHTML = myData[i]['id']; 
+       myCells[1].innerHTML = myData[i]['date'];
+        myCells[2].innerHTML = myData[i]['amount'];
+         myCells[3].innerHTML = myData[i]['status'];
+       }
+    }
+    
+  
+</script>
+
+</body>
+
+
+</html>
